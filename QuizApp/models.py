@@ -8,7 +8,7 @@ DIFFICULTY_CHOICES = [
 ]
 
 class Question(models.Model):
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=500)
     difficulty = models.CharField(max_length=10, choices=DIFFICULTY_CHOICES, default='medium')
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -60,7 +60,7 @@ class AISettings(models.Model):
 
     @classmethod
     def get_solo(cls): # singleton pattern to ensure only one settings object 
-        obj, _ = AISettings.objects.get_or_create(id=1)
+        obj, _ = cls.objects.get_or_create(id=1)
         return obj
 
  
