@@ -4,10 +4,34 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow-sm border-0">
-            <div class="card-body text-center">
+            <div class="card-body">
                 <h3 class="card-title mb-2">Welcome to the Quiz App</h3>
-                <p class="card-text">Test your knowledge with our exciting quizzes. Click the button below to get started!</p>
-                <a href="#" class="btn btn-primary btn-lg mt-3">Start Quiz</a>
+                <p class="card-text">Answer MCQs and get AI-based short explanation + "Learn more" facts.
+                    Finish and download your certificate of completion.
+                </p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Enter Your Name(For certificate)</label>
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="e.g. Aayush Shah">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="difficulty" class="form-label">Difficulty</label>
+                            <select name="difficulty" id="difficulty" class="form-select" required>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary">Start Quiz</button>
+                            <a href="{% url 'quiz_about' %}" class="btn btn-outline-secondary">About</a>
+                            <a href="" class="btn btn-outline-success">Leaderboard</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
