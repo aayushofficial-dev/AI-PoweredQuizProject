@@ -63,4 +63,3 @@ class AISettings(models.Model):
         obj, _ = cls.objects.get_or_create(id=1)
         return obj
 
- 
