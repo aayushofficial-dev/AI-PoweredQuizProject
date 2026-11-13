@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>AI Settings</h2>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="gemini_api_key">Gemini API Key:</label>
+    <input type="password" name="gemini_api_key" id="gemini_api_key" required>
+    <br><br>
+    <label for="gemini_model">Gemini Model:</label>
+    <input type="text" name="gemini_model" id="gemini_model" required value="{{ current_model }}">
+    <br><br>
+    <button type="submit">Save Settings</button>
+</form>
+{% endblock %}
