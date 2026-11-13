@@ -62,4 +62,3 @@ class AISettings(models.Model):
     def get_solo(cls): # singleton pattern to ensure only one settings object 
         obj, _ = cls.objects.get_or_create(id=1)
         return obj
-

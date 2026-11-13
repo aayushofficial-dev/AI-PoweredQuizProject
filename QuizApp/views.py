@@ -50,4 +50,3 @@ def ai_settings(request):
     return render(request, 'ai_settings.html', {'current_model': ai_settings})
 
 
-
